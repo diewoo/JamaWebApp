@@ -3,6 +3,9 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import com.sw2.bean.Platillo;
+import java.util.ArrayList;
+import java.util.List;
 
 public final class ListarPlatillo_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -41,6 +44,9 @@ public final class ListarPlatillo_jsp extends org.apache.jasper.runtime.HttpJspB
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html lang=\"en\">\n");
       out.write("    <head>\n");
@@ -50,7 +56,6 @@ public final class ListarPlatillo_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("        <link rel=\"stylesheet\" href=\"http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\">\n");
       out.write("        <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js\"></script>\n");
       out.write("        <script src=\"http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js\"></script>\n");
-      out.write("\n");
       out.write("        <style>\n");
       out.write("            body {\n");
       out.write("                position: relative;\n");
@@ -63,18 +68,19 @@ public final class ListarPlatillo_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                height: 250px;\n");
       out.write("                font-size: 28px;\n");
       out.write("            }\n");
-      out.write("            #section1 {color: #fff; background-color: #1E88E5;}\n");
-      out.write("            #section2 {color: #fff; background-color: #673ab7;}\n");
-      out.write("            #section3 {color: #fff; background-color: #ff9800;}\n");
-      out.write("            #section41 {color: #fff; background-color: #00bcd4;}\n");
-      out.write("            #section42 {color: #fff; background-color: #009688;}\n");
-      out.write("\n");
+      out.write("            .section {color: #fff; background-color: #1E88E5;}\n");
       out.write("            @media screen and (max-width: 810px) {\n");
       out.write("                #section1, #section2, #section3, #section41, #section42  {\n");
       out.write("                    margin-left: 150px;\n");
       out.write("                }\n");
       out.write("            }\n");
       out.write("        </style>\n");
+      out.write("        ");
+
+            int cont = 1;
+            List<Platillo> platillos = (List<Platillo>) request.getAttribute("platillos");
+        
+      out.write("\n");
       out.write("    </head>\n");
       out.write("    <body data-spy=\"scroll\" data-target=\"#myScrollspy\" data-offset=\"20\">\n");
       out.write("\n");
@@ -82,25 +88,52 @@ public final class ListarPlatillo_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("            <div class=\"row\">\n");
       out.write("                <nav class=\"col-sm-3\" id=\"myScrollspy\">\n");
       out.write("                    <ul class=\"nav nav-pills nav-stacked\">\n");
-      out.write("                        <li class=\"active\"><a href=\"#section1\">Section 1</a></li>\n");
-      out.write("                        <li><a href=\"#section2\">Section 2</a></li>\n");
-      out.write("                        <li><a href=\"#section3\">Section 3</a></li>\n");
+      out.write("\n");
+      out.write("                        ");
+
+                            for (int i = 1; i <= platillos.size(); i++) {
+                        
+      out.write("\n");
+      out.write("                        <li><a ");
+ if (i == 1) {
+      out.write("class=\"active\"");
+ }
+      out.write(" href=\"#section");
+      out.print(i);
+      out.write('"');
+      out.write('>');
+      out.print(platillos.get(i-1).getNombre());
+      out.write("</a></li>\n");
+      out.write("                            ");
+
+                                }
+                            
       out.write("\n");
       out.write("                    </ul>\n");
       out.write("                </nav>\n");
       out.write("                <div class=\"col-sm-9\">\n");
-      out.write("                    <div id=\"section1\">    \n");
-      out.write("                        <h1>Section 1</h1>\n");
-      out.write("                        <p>Try to scroll this section and look at the navigation list while scrolling!</p>\n");
+      out.write("\n");
+      out.write("                    ");
+
+                        for (Platillo plats : platillos) {
+                    
+      out.write("\n");
+      out.write("                    <div id=\"section");
+      out.print(cont);
+      out.write("\" class=\"section\">    \n");
+      out.write("                        <h1>");
+      out.print(plats.getNombre());
+      out.write("</h1>\n");
+      out.write("                        <p>");
+      out.print(plats.getDescripcion());
+      out.write("</p>\n");
       out.write("                    </div>\n");
-      out.write("                    <div id=\"section2\"> \n");
-      out.write("                        <h1>Section 2</h1>\n");
-      out.write("                        <p>Try to scroll this section and look at the navigation list while scrolling!</p>\n");
-      out.write("                    </div>        \n");
-      out.write("                    <div id=\"section3\" style=\"margin-bottom:  300px;\">         \n");
-      out.write("                        <h1>Section 3</h1>\n");
-      out.write("                        <p>Try to scroll this section and look at the navigation list while scrolling!</p>\n");
-      out.write("                    </div>\n");
+      out.write("                    ");
+
+                            cont++;
+                        }
+                    
+      out.write("\n");
       out.write("                    <div>         \n");
       out.write("                    </div>\n");
       out.write("                </div>\n");

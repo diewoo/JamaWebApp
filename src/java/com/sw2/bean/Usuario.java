@@ -21,6 +21,8 @@ public class Usuario {
     private String fecha_nac;
     private String password;
     private List<Platillo> platilos;
+    
+    
 
     public Usuario() {
     }

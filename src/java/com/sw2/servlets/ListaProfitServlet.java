@@ -5,11 +5,13 @@
  */
 package com.sw2.servlets;
 
-import com.sw2.bean.Usuario;
-import com.sw2.dao.UsuarioDAO;
+import com.sw2.bean.Venta;
+import com.sw2.dao.ProfitDAO;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Diego
  */
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "ListaProfitServlet", urlPatterns = {"/ListaProfitServlet"})
+public class ListaProfitServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,24 +34,14 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //HttpSession ses = request.getSession(true);
-
-        String usuario = request.getParameter("user");
-        String password = request.getParameter("password");
+       
+        ProfitDAO dao = new ProfitDAO();
+        List<Venta> ventas = dao.getVentas(1);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("ListaProfit.jsp");
+        request.setAttribute("ventas", ventas);
+        dispatcher.forward(request, response);
         
-        UsuarioDAO dao = new UsuarioDAO();
-        Usuario user = dao.obtenerUserXUsuario(usuario , password);
-
-        if (user != null) {
-            
-            RequestDispatcher dispatcher = request.getRequestDispatcher("Cuenta.jsp");
-            request.setAttribute("usuario", user);
-            dispatcher.forward(request, response);
-        }else {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-            dispatcher.forward(request, response);
-        }
-
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -64,7 +57,6 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-
     }
 
     /**
@@ -79,7 +71,6 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-
     }
 
     /**

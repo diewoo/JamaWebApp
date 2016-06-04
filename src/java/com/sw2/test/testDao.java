@@ -6,7 +6,9 @@
 package com.sw2.test;
 
 import com.sw2.bean.Usuario;
-import com.sw2.dao.UsuarioDAO;
+import com.sw2.bean.Venta;
+import com.sw2.dao.ProfitDAO;
+import java.util.List;
 
 /**
  *
@@ -19,10 +21,13 @@ public class testDao {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Usuario usuario=new Usuario();
-        UsuarioDAO test=new UsuarioDAO();
-      usuario=  test.obtenerUserXUsuario("dgo250594@gmail.com");
-        System.out.println(usuario);
+        
+        ProfitDAO test = new ProfitDAO();
+        List<Venta> ventas =  test.getVentas(1);
+        for (Venta venta : ventas) {
+            System.out.println(venta);
+        }
+        
         
     }
     

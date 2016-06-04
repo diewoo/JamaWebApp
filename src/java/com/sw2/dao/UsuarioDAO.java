@@ -20,7 +20,7 @@ public class UsuarioDAO {
 
     Conexion cone = new Conexion();
 
-    public Usuario obtenerUserXUsuario(String usu) {
+    public Usuario obtenerUserXUsuario(String usu , String pass) {
 
         Usuario usuario = null;
         int idusuario = 0;
@@ -35,7 +35,7 @@ public class UsuarioDAO {
         ResultSet rs = null;
 
         Connection con = null;
-        String sql = "SELECT * FROM usuarios WHERE correo=? ";
+        String sql = "SELECT * FROM usuarios WHERE correo=? and password=?";
         PreparedStatement stmt = null;
         System.out.println(sql);
 
@@ -44,6 +44,7 @@ public class UsuarioDAO {
             stmt = con.prepareStatement(sql);
 
             stmt.setString(1, usu);
+            stmt.setString(2, pass);
 
             rs = stmt.executeQuery();
 
