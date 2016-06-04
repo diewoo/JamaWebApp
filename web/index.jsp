@@ -26,11 +26,14 @@
             <div class="animated zoomIn">Jama!<span>Login</span></div>
         </div>
         <br>
+        <form method="POST" action="LoginServlet">
         <div class="login">
             <input type="text" placeholder="usuario" name="user"><br>
             <input type="password" placeholder="password" name="password"><br>
-            <div class="" ><input  type="button" value="Login"></div>
+            <div class="" ><input  type="submit" value="Login" ></div>
         </div>
+        </form>
+        
         <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
 
