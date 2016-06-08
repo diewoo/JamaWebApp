@@ -15,7 +15,9 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-        <link rel="stylesheet" href="/resources/demos/style.css">
+        <link href="css/sweetalert.css" rel="stylesheet" type="text/css"/>
+        <script src="js/sweetalert.min.js" type="text/javascript"></script>
+        
         <script>
             $(function () {
                 $("#datepicker").datepicker();
@@ -55,8 +57,8 @@
 
             <div class="form-group">
 
-                <div STYLE="margin-top:10%">
-                    <button type="button" class="btn btn-primary" >Registrarse por Facebook</button>
+                <div STYLE="margin-top:13%">
+                    <button  type="button"  class=" btn-primary "  style="border-radius: 15px 15px 15px 15px " >Registrarse por Facebook</button>
                 </div>
 
             </div>
@@ -64,42 +66,51 @@
             <hr class="star-light">
 
 
-            <form class="form-horizontal">
+            <form class="form-horizontal" id="form" method="post" >
                 <fieldset>
-                    <legend>Registrate con tu direccion de email</legend>
+                    <legend ><p style="text-justify: auto;text-align: center;">Registrate con tu dirección de email</p></legend>
                     <div class="form-group">
-                        <label for="inputNombreUsuario" class="col-lg-2 control-label">Nombre de Usuario:</label>
-                        <div class="col-lg-10">
-                            <input type="text" class="form-control" id="inputNombreUsuario" >
+                        <label for="inputNombreUsuario" class="col-lg-2 control-label ">Nombre de Usuario:</label>
+                        <div  style="margin-top: auto "class="col-lg-10 ">
+                            <input type="text" class="form-control" id="usuario" >
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="inputNombreApellido" class="col-lg-2 control-label">Nombre y Apellido</label>
-                        <div class="col-lg-10">
-                            <input type="text" class="form-control" id="inputNombreApellido" >
+                    <div style="margin-top: auto"class="form-group">
+                        <label for="inputNombreApellido" class="col-lg-2 control-label">Nombre y Apellido:</label>
+                        <div class="col-lg-10 ">
+                            <input type="text" class="form-control" id="nombreapellido" >
                         </div>
                     </div> 
-                    <div class="form-group">
-                        <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-                        <div class="col-lg-10">
+                    <div  style="margin-top: auto"class="form-group">
+                        <label for="inputEmail" class="col-lg-2 control-label">Email:</label>
+                        <div class="col-lg-10 ">
                             <input type="text" class="form-control" id="inputEmail" >
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputConfirmarEmail" class="col-lg-2 control-label">Confirmar Email</label>
-                        <div class="col-lg-10">
+                        <label for="inputConfirmarEmail" class="col-lg-2 control-label">Confirmar Email:</label>
+                        <div class="col-lg-10 ">
                             <input type="text" class="form-control" id="inputConfirmarEmail" >
                         </div>
                     </div>  
-                    <div class="form-group">
+                    <div  style="margin-top: auto"class="form-group">
                         <label  class="col-lg-2 control-label">Fecha de Nacimiento:</label>   
-                        <div class="col-lg-4">
+                        <div class="col-lg-10 ">
                             <input class="form-control" type="text" id="datepicker">
+                            
                         </div>
+                    </div
+                    <div style="margin-top: auto"class="form-group">
+                        <div  class="col-xs-10">
+                            <input style="border-radius: 15px 15px 15px 15px ;color: #330033;background-color:#A5DC86 "  type="submit" class="btn btn btn-primary btn-block" id="ingresar"  value='Registrarse'/>
+                    </div>
                     </div>
                 </fieldset>
             </form>
         </div>
+       <script src="js/validalogin.js" type="text/javascript"></script>
+       
     </body>
+    
 </html>

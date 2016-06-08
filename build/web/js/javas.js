@@ -33,64 +33,64 @@
             
   if ( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
    
-    alert('Falta Nombre');
+   swal("falta nombre");
       return  false;
    
   }else if ( valor2 == null || valor2.length == 0 || /^\s+$/.test(valor) ) {
    
-    alert('Falta Apellido Paterno');
+     swal("falta apellido paterno");
       return  false;
   }else if(valor3 == null || valor3.length == 0 || /^\s+$/.test(valor)){
           
-    alert('Falta Apellido Materno');
+     swal("falta apellido materno");
       return  false;
   }else if(document.getElementById('radiohombre').checked==false && document.getElementById('radiomujer').checked==false){
           
-     alert('Falta Seleccionar el sexo');
+      swal("falta sexo");
       return  false;
   }else if(valor5 == null || valor5.length == 0 || /^\s+$/.test(valor)){
           
-    alert('Falta la fecha de nacimiento');
+    swal("falta fecha de nacimiento");
       return  false;
   }else if(valor6==0){
           
-      alert('Falta Seleccionar Nacionalidad');
+       swal("falta seleccionar nacionalidad");
       return  false;
   }else if(valor7 == null || valor7.length == 0 || /^\s+$/.test(valor)){
           
-    alert('Falta Apellido Dni');
+    swal("falta apellido dni");
       return  false;
   }else if(valor8==0){
           
-      alert('Falta Seleccionar Departamento');
+      swal("falta seleccionar departamento");
       return  false;
   }else if(valor9 == null || valor9.length == 0 || /^\s+$/.test(valor)){
           
-    alert('Falta Direccion');
+     swal("falta direccion");
       return  false;
   }else if(valor10==0){
           
-      alert('Falta Seleccionar Distrito');
+       swal("falta seleccionar distrito");
       return  false;
   }else if(valor11 == null || valor11.length == 0 || /^\s+$/.test(valor)){
           
-    alert('Falta  Telefono Fijo');
+     swal("falta telefono fijo");
       return  false;
   }else if(valor12 == null || valor12.length == 0 || /^\s+$/.test(valor)){
           
-    alert('Falta  Telefono Celular');
+     swal("falta celular");
       return  false;
   }else if(valor13 == null || valor13.length == 0 || /^\s+$/.test(valor)){
           
-    alert('Falta Contraseña');
+     swal("falta contrasenia");
       return  false;
   }else if(valor14 == null || valor14.length == 0 || /^\s+$/.test(valor)){
           
-    alert('Falta Repetir Contraseña');
+     swal("falta repetir contrasenia");
       return  false;
   }else if(valor13!=valor14){
           
-     alert('Contraseñas no coinciden');
+      swal("contrasenias no coinciden");
       return  false;
   }
   
